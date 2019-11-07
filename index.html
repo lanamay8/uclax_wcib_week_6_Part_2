@@ -4,20 +4,183 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Week 6, Part 1</title>
+    <title>Week 6, Part 2</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+SC:400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
   </head>
 
-  <body class="text-center">
+
+  <body>
+    <nav class="site-header sticky-top py-1">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-1" href="#"><img class="headerLogo" src="images/logo-icon-lg-trans.png" width="40"></a>
+    <a class="py-2 d-none d-md-inline-block" href="#">About</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Tastings</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Where to Buy</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">The Science</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Our Vegan Commitment</a>
+    <a class="btn timer" href="#" id="timer">Click for Countdown!</a>
+  </div>
+</nav>
+
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal upper"><img src="images/logo-icon-lg-trans.png" width="100" alt="ThinkDrink"></h1>
+    <h1 class="display-4 font-weight-normal"><img src="images/logo-name-trans-pink.png" width="450" alt="ThinkDrink"></h1>
+    <p class="lead font-weight-normal"><span>COMING SOON!</span><br>Powerful green beverages for optimized thinking. Because you have brain goals.</p>
+    <button type="button" class="btn btn-success" id="tellusmore" data-toggle="modal" data-target="#bigModal">Tell Us More!</button>
+    <div class="newMessage"></div>
+  </div>
+  <div class="product-device product-device-1 shadow-sm d-none d-md-block"><img src="images/header-1.png"></div>
+  <div class="product-device product-device-2 shadow-sm d-none d-md-block"><img src="images/header-2.png"></div>
+</div>
+
+
+<!-- Modals -->
+<div class="modal fade" id="bigModal" tabindex="-1" role="dialog" aria-labelledby="bigModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content modal-popout-bg">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Tell Us!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+  <form>
+    <p>We are so excited about the coming release of ThinkDrink. Let's stay in touch! We'll let you know when our ThinkDrink beverages are available in stores, and we'll even send you freebies!</p>
+    <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="firstName">First Name</label>
+      <input type="firstName" class="form-control" id="inputFirstName" placeholder="">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="lastName">Last Name</label>
+      <input type="lastName" class="form-control" id="inputLastName" placeholder="">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+    </div>
+    </div>
+  <div class="form-group">
+    <label for="form-check-options">What qualities of your brain would you like to improve?</label>
+  <div class="form-control">
+  <div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+  <label class="form-check-label" for="inlineCheckbox1">Memory</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+  <label class="form-check-label" for="inlineCheckbox2">Mental Agility</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+  <label class="form-check-label" for="inlineCheckbox3">Decision-Making</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option4">
+  <label class="form-check-label" for="inlineCheckbox4">Logic</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+  <label class="form-check-label" for="inlineCheckbox5">Common Sense</label>
+</div>
+</div>
+</div>
+  <div class="form-group">
+    <label for="Textarea1">Anything else you'd like share?</label>
+    <textarea class="form-control" id="Textarea1" rows="2"></textarea>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success submit" id="Submit" data-dismiss="modal" data-toggle="modal" data-target="#followUp">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- small follow-up modal -->
+<div class="modal fade" id="followUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content mini">
+      <div class="modal-header">
+        <h5 class="modal-title thankYou" id="thankYou">Thank you!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body smallFry">
+        <div class="smallMessage"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+  <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-3 py-3">
+      <h2 class="display-5">Always Fresh</h2>
+      <p class="lead">We use locally sourced, organic produce at our regional ThinkDrink creation kitchens.</p>
+    </div>
+    <div class="mx-auto"><img src="images/green-celery1.jpg" width="80%"></div>
+  </div>
+  <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-3 p-3">
+      <h2 class="display-5">Recipes for Brain Health</h2>
+      <p class="lead">Our ThinkDrink scientists create ThinkDrink recipes to optimize how you think.</p>
+    </div>
+    <div class="mx-auto"><img src="images/green-ginger.jpg" width="70%"></div>
+  </div>
+</div>
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+  <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-3 py-3">
+      <h2 class="display-5">Designed with Purpose</h2>
+      <p class="lead">Our ThinkDrink product lines will help you maintain lean muscle as well as build brain power!</p>
+    </div>
+    <div class="mx-auto"><img src="images/green-zen.png" width="80%"></div>
+  </div>
+  <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-3 p-3">
+      <h2 class="display-5">Commitment to Growth</h2>
+      <p class="lead">We at ThinkDrink will work hard to expand our offerings and keep you intrigued!</p>
+    </div>
+    <div class="mx-auto"><img src="images/green-growth.jpg" width="70%"></div>
+  </div>
+</div>
+
+<footer class="container">
+  <div class="row">
+    <div class="col-12 col-md">
+      <img src="images/logo-icon-lg-trans.png" width="40">
+      <small class="d-block mb-3 text-muted">&copy; 2019</small>
+    </div>
+  </div>
+</footer>
+</body>
+
+
+
+
+  <!-- <body class="text-center">
     <div class="cover-container d-flex p-3 mx-auto flex-column">
   <header class="masthead mb-auto">
     <div class="inner">
@@ -34,7 +197,7 @@
     <p class="lead">Each pixel is worth a thousand words.</p>
 
 
-<!--from mdn example-->
+//from mdn example
 <div class="full-img">
   <img class="displayed-img" src="images/pic1.jpg">
   <div class="overlay"></div>
@@ -51,5 +214,5 @@
     </div>
   </footer>
 </div>
-</body>
+</body> -->
 </html>
